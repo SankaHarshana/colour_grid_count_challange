@@ -1,5 +1,7 @@
 import random
 
+
+
 def random_color():
     rgbl=[255,0,0]
     random.shuffle(rgbl)
@@ -11,9 +13,10 @@ def color_grid(rows, col):
 
     return grid
 
+
+
 rows = 5
 columns = 3
-
 
 input = color_grid(rows,columns)
 
@@ -93,11 +96,8 @@ def computeLargestConnectedGrid(input):
             reset_visited()
             COUNT = 0
 
-            try:
-                if (j + 1 < columns):
-                    search(input[i][j], input[i][j + 1], i, j, input)
-            except Exception as e:
-                print(f' i : {i} : j : {j}')
+            if (j + 1 < columns):
+                search(input[i][j], input[i][j + 1], i, j, input)
 
             if (COUNT >= current_max):
                 current_max = COUNT
